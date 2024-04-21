@@ -1,0 +1,10 @@
+services:
+  backend:
+    container_name: back-bridge-container
+    image: desafio-bridge-2024-backend:1.0
+    build:
+      context: ./back
+      dockerfile: Dockerfile
+    hostname: back-bridge-container
+    ports:
+      - "8080:8080"
