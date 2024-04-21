@@ -19,6 +19,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
  * Test class for {@link PrimeNumberController}.
  * @see <a href="https://spring.io/guides/gs/testing-web">Testing the Web Layer - Spring</a>
  * @see <a href="https://howtodoinjava.com/spring-boot2/testing/rest-controller-unit-test-example/">Test a Spring Boot REST Controller with JUnit 5 - HowToDoInJava</a>
+ * @see <a href="https://stackoverflow.com/a/63920995">Mock Static Methods in JUnit5 using PowerMockito</a>
  */
 @WebMvcTest(PrimeNumberController.class)
 @AutoConfigureMockMvc
