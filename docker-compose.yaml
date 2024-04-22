@@ -1,7 +1,7 @@
 services:
   backend:
     container_name: back-bridge-container
-    image: desafio-bridge-2024-backend:1.0
+    image: desafio-bridge-2024-back:1.0
     build:
       context: ./back
       dockerfile: Dockerfile
@@ -9,7 +9,7 @@ services:
       - "8080:8080"
   frontend:
     container_name: front-bridge-container
-    image: desafio-bridge-2024-frontend:1.0
+    image: desafio-bridge-2024-front:1.0
     build:
       context: ./front
       dockerfile: Dockerfile
