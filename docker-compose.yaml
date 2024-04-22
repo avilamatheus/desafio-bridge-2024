@@ -5,6 +5,15 @@ services:
     build:
       context: ./back
       dockerfile: Dockerfile
-    hostname: back-bridge-container
     ports:
       - "8080:8080"
+  frontend:
+    container_name: front-bridge-container
+    image: desafio-bridge-2024-frontend:1.0
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+      args:
+      - VITE_BACK_END_URL=http://localhost:8080/api/primenumber
+    ports:
+      - "5173:5173"
