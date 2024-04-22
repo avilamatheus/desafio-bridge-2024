@@ -38,7 +38,7 @@ class PrimeNumberControllerTest {
         int kValue = 100;
         int expectedReturnValue = 25;
         PrimeNumberRequestDTO requestDTO = new PrimeNumberRequestDTO();
-        requestDTO.setK(kValue);
+        requestDTO.setK(String.valueOf(kValue));
 
         try (MockedStatic<PrimeNumber> mockedPrimeNumber = Mockito.mockStatic(PrimeNumber.class)) {
             mockedPrimeNumber.when(() -> PrimeNumber.numberOfPositivePrimesLessThanK(kValue)).thenReturn(expectedReturnValue);
@@ -62,9 +62,9 @@ class PrimeNumberControllerTest {
     @Test
     void testPostWithParameterKExceedingLimit_ShouldReturnBadRequest() throws Exception {
         int limit = PrimeNumber.MAX_LIMIT;
-        String expectedErrorMsg = "The number entered must be less than " + limit;
+        String expectedErrorMsg = "The number entered must be equal or less than " + limit;
         PrimeNumberRequestDTO requestDTO = new PrimeNumberRequestDTO();
-        requestDTO.setK(limit + 1);
+        requestDTO.setK(String.valueOf(limit + 1));
 
         try (MockedStatic<PrimeNumber> mockedPrimeNumber = Mockito.mockStatic(PrimeNumber.class)) {
             mockedPrimeNumber.when(() -> PrimeNumber.numberOfPositivePrimesLessThanK(limit + 1))
@@ -107,7 +107,7 @@ class PrimeNumberControllerTest {
      */
     @Test
     void testPostWithInvalidParameterK_ShouldReturnBadRequest() throws Exception {
-        String expectedErrorMsg = "Error processing the request. Please check if the sent data is correct and try again.";
+        String expectedErrorMsg = "Field 'k' must be a valid Integer";
         String invalidJson = """
         {
             "k": "laboratorio-bridge"

@@ -27,7 +27,7 @@ public class PrimeNumber {
         }
 
         if(k > MAX_LIMIT) {
-            throw new PrimeNumberException("The number entered must be less than " + MAX_LIMIT);
+            throw new PrimeNumberException("The number entered must be equal or less than " + MAX_LIMIT);
         }
 
         boolean[] isPrime = new boolean[k + 1];

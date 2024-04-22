@@ -20,6 +20,7 @@ import java.util.*;
 @RestController
 @RequestMapping("/api/primenumber")
 @Validated
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class PrimeNumberController {
 
     /**
@@ -30,7 +31,7 @@ public class PrimeNumberController {
      */
     @PostMapping("")
     public ResponseEntity<PrimeNumberResponseDTO> numberOfPrimesLessThanK(@RequestBody @Valid PrimeNumberRequestDTO primeNumberRequestDTO) {
-        int k = primeNumberRequestDTO.getK();
+        int k = Integer.parseInt(primeNumberRequestDTO.getK());
 
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
@@ -51,6 +52,11 @@ public class PrimeNumberController {
     @ExceptionHandler(PrimeNumberException.class)
     public ResponseEntity<ErrorResponseDTO> handlePrimeNumberException(PrimeNumberException exception) {
         return new ResponseEntity<>(new ErrorResponseDTO(exception.getMessage()), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(NumberFormatException.class)
+    public ResponseEntity<ErrorResponseDTO> handleInvalidParameterK() {
+        return new ResponseEntity<>(new ErrorResponseDTO("Field 'k' must be a valid Integer"), HttpStatus.BAD_REQUEST);
     }
 
     /**
