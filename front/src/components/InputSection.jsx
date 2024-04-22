@@ -6,7 +6,7 @@ const InputSection = ({ integerInput, handleInputChange }) => {
       <h2 className="mb-4">Enter an integer number (k) to calculate the number of prime positive integers less than k.</h2>
       <div className="input-group mb-3">
         <input
-          type="number"
+          type="text"
           value={integerInput}
           onChange={handleInputChange}
           className="form-control mx-auto"

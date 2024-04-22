@@ -5,7 +5,7 @@ import LoadingButton from './components/LoadingButton';
 import ResultSection from './components/ResultSection';
 
 const App = () => {
-  const [integerInput, setintegerInput] = useState('');
+  const [integerInput, setIntegerInput] = useState('');
   const [inputFilled, setInputFilled] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showContent, setShowContent] = useState(true);
@@ -14,16 +14,17 @@ const App = () => {
 
   const handleInputChange = (event) => {
     const inputValue = event.target.value;
-    if (/^-?\d*$/.test(inputValue)) {
-      setintegerInput(inputValue);
-      setInputFilled(inputValue !== '');
-    }
+    const sanitizedValue = inputValue.replace(/[^-\d]/g, "");
+    setIntegerInput(sanitizedValue);
+    setInputFilled(sanitizedValue !== '');
   };
 
   const handleCalculateAgain = () => {
     setShowContent(true);
     setResult(null);
     setErrorMessage('');
+    setIntegerInput('');
+    setInputFilled(false);
   };
 
   const handleSubmit = async () => {
