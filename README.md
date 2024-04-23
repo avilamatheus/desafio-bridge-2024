@@ -23,10 +23,10 @@ para estilização da página.
 - O Back-End foi desenvolvido com a utilização do gerenciador de dependências **Maven**, a linguagem de programação **Java** e o framework **Spring Boot**.
 
 **Docker e Docker Compose**
-- Para facilitar a execução do projeto, foi utilizado **Docker** para criar containers com as dependências necessárias para a execução do projeto, onde o Front-End e o Back-End estão em containers separados e a imagem de ambos são criadas a partir de um arquivo **Dockerfile** em suas respectivas pastas. Além disso, foi utilizado o **Docker Compose** que utiliza do arquivo **docker-compose.yml** para facilitar a execução de ambos os containers.
+- Para facilitar a execução do projeto, foi utilizado **Docker** para criar containers com as dependências necessárias para que o projeto possa ser executado, onde o Front-End e o Back-End estão em containers separados e a imagem de ambos são criadas a partir de um arquivo **Dockerfile** em suas respectivas pastas. Além disso, foi utilizado o **Docker Compose**, que utiliza do arquivo **docker-compose.yaml** para facilitar a execução e configuração de ambos os containers.
 
 **AWS**
-- O projeto foi hospedado na **AWS**, utilizando uma instância **EC2** para hospedar o Front-End e o Back-End. Dentro do EC2 foi utilizado o **Docker** para criar os containers e o **Docker Compose** para facilitar a execução dos containers. As imagens dos containers foram hospedadas no **Docker Hub** para facilitar o deploy na AWS.
+- O projeto foi hospedado na **AWS**, utilizando uma instância **EC2** para hospedar o Front-End e o Back-End. Dentro do EC2 foi utilizado o **Docker** para criar os containers e o **Docker Compose** para facilitar a execução e configuração dos containers. As imagens dos containers foram hospedadas no **Docker Hub** para facilitar o deploy na AWS.
 
 
 <h2 id="back">Back-End: Rotas & Testes Unitários</h2>
@@ -65,7 +65,8 @@ Caso ocorra algum erro durante a requisição, será retornado um status HTTP 40
 
 <h3>Testes Unitários</h3>
 
-Para executar os testes unitários do Back-End, um pré requisito é ter o **Maven** instalado na máquina. Para executar os testes, basta executar o comando abaixo dentro da pasta do Back-End 
+Para executar os testes unitários do Back-End, um pré requisito é ter o **Maven** instalado na máquina. O tutorial de instalação do Maven pode ser encontrado [neste link](https://maven.apache.org/install.html). 
+Para executar os testes, basta executar o comando abaixo dentro da pasta do Back-End 
 
 (`/back`)
 
@@ -83,7 +84,10 @@ mvn test
 
 <h2 id="local">Como executar localmente</h2>
 
-Para executar o projeto localmente, um pré requisito é ter o **Docker** e o **Docker Compose** instalados na máquina. Após a instalação, basta executar o comando abaixo na raiz do projeto:
+Para executar o projeto localmente, um pré requisito é ter o **Docker** e o **Docker Compose** instalados na máquina. O tutorial de instalação do Docker pode ser encontrado [neste link](https://docs.docker.com/get-docker/).
+
+
+Após a instalação, basta executar o comando abaixo na raiz do projeto:
 
 ```bash
 docker compose up
@@ -109,7 +113,11 @@ docker compose up backend #(ou docker compose up backend -d para executar em det
 
 <h2 id="aws">Deploy na AWS</h2>
 
-Como citado na seção de [Tecnologias Utilizadas](#tech), o projeto foi hospedado na AWS. Para realizar o deploy do projeto na AWS, foi utilizado uma instância EC2, onde foi instalado o Docker e o Docker Compose para facilitar a execução dos containers. Além disso, as imagens dos containers foram hospedadas no Docker Hub para facilitar o deploy na AWS. Dentro da instança EC2, foi criado um diretório referente ao projeto e dentro deste foi criado o arquivo `docker-compose.yml` a seguir:
+Como citado na seção de [Tecnologias Utilizadas](#tech), o projeto foi hospedado na AWS. Para realizar o deploy do projeto na AWS, foi utilizado uma instância EC2, onde foi instalado o Docker e o Docker Compose para facilitar a execução dos containers. 
+
+As imagens dos containers foram hospedadas no Docker Hub para facilitar o deploy na AWS, a imagem do Front-End pode ser encontrada [aqui](https://hub.docker.com/r/avilamatheus/desafio-bridge-2024-frontend-aws) e a imagem do Back-End pode ser encontrada [aqui](https://hub.docker.com/r/avilamatheus/desafio-bridge-2024-backend-aws).
+
+Dentro da instância EC2, foi criado um diretório referente ao projeto e dentro deste foi criado o arquivo `docker-compose.yml` a seguir:
 
 ```yaml
 services:
