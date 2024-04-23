@@ -35,22 +35,21 @@ O Back-End do projeto foi desenvolvido utilizando tecnologias Java modernas para
 
 **Docker e Docker Compose**
 
-O Docker é uma plataforma de software que permite a criação, o gerenciamento e a execução de aplicativos em contêineres. Os contêineres são ambientes isolados que contêm todos os recursos necessários para executar um aplicativo, incluindo código, bibliotecas e dependências. Isso garante que o aplicativo seja executado de maneira consistente, independentemente do ambiente em que esteja sendo executado.
+O **Docker** é uma plataforma de software que permite a criação, o gerenciamento e a execução de aplicativos em contêineres. Os contêineres são ambientes isolados que contêm todos os recursos necessários para executar um aplicativo, incluindo código, bibliotecas e dependências. Isso garante que o aplicativo seja executado de maneira consistente, independentemente do ambiente em que esteja sendo executado.
 
 No contexto deste projeto, o Docker foi usado para criar contêineres separados para o Front-End e o Back-End. Isso permite que cada parte do aplicativo seja encapsulada em seu próprio ambiente isolado, facilitando o desenvolvimento, o teste e a implantação.
 
-O Docker Compose é uma ferramenta que simplifica o processo de definição e execução de aplicativos Docker compostos por vários contêineres. Ele usa um arquivo YAML chamado `docker-compose.yaml` para definir os serviços, as redes e os volumes necessários para o aplicativo. Isso simplifica a configuração e a execução de aplicativos compostos por vários contêineres, como o Front-End e o Back-End deste projeto.
+O **Docker** Compose é uma ferramenta que simplifica o processo de definição e execução de aplicativos Docker compostos por vários contêineres. Ele usa um arquivo YAML chamado `docker-compose.yaml` para definir os serviços, as redes e os volumes necessários para o aplicativo. Isso simplifica a configuração e a execução de aplicativos compostos por vários contêineres, como o Front-End e o Back-End deste projeto.
 
 **AWS**
 
-A Amazon Web Services (AWS) é uma plataforma de computação em nuvem que oferece uma ampla variedade de serviços de computação, armazenamento, banco de dados, análise, machine learning, inteligência artificial, Internet das Coisas (IoT), segurança, entre outros. No contexto deste projeto, a AWS foi usada para hospedar e implantar o Front-End e o Back-End.
+A **Amazon Web Services (AWS)** é uma plataforma de computação em nuvem que oferece uma ampla variedade de serviços de computação, armazenamento, banco de dados, análise, machine learning, inteligência artificial, Internet das Coisas (IoT), segurança, entre outros. No contexto deste projeto, a AWS foi usada para hospedar e implantar o Front-End e o Back-End.
 
 Para hospedar o projeto na AWS, foi criada uma instância EC2 (Elastic Compute Cloud), que é um serviço que oferece capacidade de computação redimensionável na nuvem. Dentro da instância EC2, o Docker foi usado para criar e executar os contêineres do Front-End e do Back-End. O Docker Compose foi usado para facilitar a configuração e a execução dos contêineres, permitindo que o projeto seja implantado de maneira consistente e escalável na AWS.
 
-As imagens dos contêineres foram hospedadas no Docker Hub, que é um serviço de hospedagem de contêineres que permite compartilhar, armazenar e distribuir imagens de contêineres. Isso facilita o processo de implantação na AWS, pois as imagens podem ser facilmente acessadas e implantadas em instâncias EC2.
+As imagens dos contêineres foram hospedadas no **Docker Hub**, que é um serviço de hospedagem de contêineres que permite compartilhar, armazenar e distribuir imagens de contêineres. Isso facilita o processo de implantação na AWS, pois as imagens podem ser facilmente acessadas e implantadas em instâncias EC2.
 
 No geral, o uso do Docker e do Docker Compose simplifica o processo de desenvolvimento e implantação do projeto, enquanto a AWS fornece uma plataforma robusta e escalável para hospedar e executar o aplicativo. Essas tecnologias combinadas permitem que o projeto seja desenvolvido, testado e implantado de maneira eficiente e confiável.
-
 
 
 <h2 id="back">Back-End: Rotas & Testes Unitários</h2>
@@ -66,13 +65,13 @@ A API Back-End possui uma rota principal para calcular a quantidade de números 
 <div id="post-detail">
 
 **Requisição**  
-A requisição deve ser feita utilizando o método POST para a rota `/api/primenumber` e deve conter um objeto JSON no corpo da requisição com o campo "k" representando o número limite para o cálculo.
+A requisição deve ser feita utilizando o método POST para a rota `/api/primenumber` e deve conter um objeto JSON no corpo da requisição com o campo "k", que representa o número inteiro positivo para o qual deseja-se calcular a quantidade de números primos menores que ele.
 
 Exemplo de requisição para calcular a quantidade de números primos positivos menores que 10:
 
 ```json
 {
-  "k": "10"
+  "k": 10
 }
 ```
 </div>
@@ -162,7 +161,7 @@ docker compose up
 docker compose -d up
 ```
 
-Após a execução do comando, o Front-End estará disponível em `http://localhost:5173` e o Back-End em `http://localhost:8080/api/primenumber`, onde é possível realizar a requisição descrita [aqui.](#routes)
+Após a execução do comando, o Front-End estará disponível em [http://localhost:5173](http://localhost:5173) e o Back-End em [http://localhost:8080/api/primenumber](http://localhost:8080/api/primenumber), onde é possível realizar a requisição descrita [aqui.](#routes)
 
 O comando abaixo pode ser utilizado para parar a execução dos containers, deve ser executado na raiz do projeto:
 ```bash
@@ -200,4 +199,4 @@ services:
       - "5173:5173"
 ```
 
-Assim, executando o comando `docker-compose up -d` na instância EC2, o Front-End estará disponível em `http://ec2-3-146-221-156.us-east-2.compute.amazonaws.com:5173` e o Back-End em `http://ec2-3-146-221-156.us-east-2.compute.amazonaws.com:8080/api/primenumber`, onde é possível realizar a requisição descrita [aqui.](#routes)
+Assim, executando o comando `docker-compose up -d` na instância EC2, o Front-End estará disponível em [http://ec2-3-146-221-156.us-east-2.compute.amazonaws.com:5173](http://ec2-3-146-221-156.us-east-2.compute.amazonaws.com:5173) e o Back-End em [http://ec2-3-146-221-156.us-east-2.compute.amazonaws.com:8080/api/primenumber](http://ec2-3-146-221-156.us-east-2.compute.amazonaws.com:8080/api/primenumber), onde é possível realizar a requisição descrita [aqui.](#routes)
