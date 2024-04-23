@@ -3,7 +3,7 @@
 <p align="center">
   <a href="#tech">Tecnologias</a> • 
   <a href="#back">Back-End: Rotas & Testes Unitários</a> •
-  <a href="#front">Front-End</a> •
+  <a href="#front">Front-End: Interface e Funcionalidades</a> •
   <a href="#local">Como executar localmente</a> •
   <a href="#aws">Deploy na AWS</a>
 </p>
@@ -39,15 +39,15 @@ O **Docker** é uma plataforma de software que permite a criação, o gerenciame
 
 No contexto deste projeto, o Docker foi usado para criar contêineres separados para o Front-End e o Back-End. Isso permite que cada parte do aplicativo seja encapsulada em seu próprio ambiente isolado, facilitando o desenvolvimento, o teste e a implantação.
 
-O **Docker** Compose é uma ferramenta que simplifica o processo de definição e execução de aplicativos Docker compostos por vários contêineres. Ele usa um arquivo YAML chamado `docker-compose.yaml` para definir os serviços, as redes e os volumes necessários para o aplicativo. Isso simplifica a configuração e a execução de aplicativos compostos por vários contêineres, como o Front-End e o Back-End deste projeto.
+O **Docker Compose** é uma ferramenta que simplifica o processo de definição e execução de aplicativos Docker compostos por vários contêineres. Ele usa um arquivo YAML chamado `docker-compose.yaml` para definir os serviços, as redes e os volumes necessários para o aplicativo. Isso simplifica a configuração e a execução de aplicativos compostos por vários contêineres, como o Front-End e o Back-End deste projeto.
 
 **AWS**
 
 A **Amazon Web Services (AWS)** é uma plataforma de computação em nuvem que oferece uma ampla variedade de serviços de computação, armazenamento, banco de dados, análise, machine learning, inteligência artificial, Internet das Coisas (IoT), segurança, entre outros. No contexto deste projeto, a AWS foi usada para hospedar e implantar o Front-End e o Back-End.
 
-Para hospedar o projeto na AWS, foi criada uma instância EC2 (Elastic Compute Cloud), que é um serviço que oferece capacidade de computação redimensionável na nuvem. Dentro da instância EC2, o Docker foi usado para criar e executar os contêineres do Front-End e do Back-End. O Docker Compose foi usado para facilitar a configuração e a execução dos contêineres, permitindo que o projeto seja implantado de maneira consistente e escalável na AWS.
+Para hospedar o projeto na AWS, foi criada uma instância EC2 (Elastic Compute Cloud), que é um serviço que oferece capacidade de computação redimensionável na nuvem. Dentro da instância EC2, o Docker foi usado para criar e executar os contêineres do Front-End e do Back-End em conjunto com o Docker Compose, que foi usado para facilitar a configuração e a execução dos contêineres.
 
-As imagens dos contêineres foram hospedadas no **Docker Hub**, que é um serviço de hospedagem de contêineres que permite compartilhar, armazenar e distribuir imagens de contêineres. Isso facilita o processo de implantação na AWS, pois as imagens podem ser facilmente acessadas e implantadas em instâncias EC2.
+As imagens dos contêineres foram hospedadas no **Docker Hub**, que é um serviço que permite o armazenamento de imagens de contêineres Docker em um repositório público ou privado. Isso facilita o compartilhamento e a distribuição das imagens entre diferentes ambientes e plataformas, como a AWS.
 
 No geral, o uso do Docker e do Docker Compose simplifica o processo de desenvolvimento e implantação do projeto, enquanto a AWS fornece uma plataforma robusta e escalável para hospedar e executar o aplicativo. Essas tecnologias combinadas permitem que o projeto seja desenvolvido, testado e implantado de maneira eficiente e confiável.
 
@@ -123,30 +123,50 @@ Abaixo estão algumas imagens que demonstram a interface e as funcionalidades do
 
 <h3 align="center">
     Tela inicial da aplicação:
+</h3>
+
+<h3 align="center">
     <br>
     <img src="https://i.imgur.com/8tU6iIs.png" width="450"/>
     <img src="https://i.imgur.com/1QwzII6.png" width="450"/>
     <br>
-    A tela inicial apresenta um formulário onde o usuário pode inserir um número inteiro para calcular a quantidade de números primos menores que ele.
 </h3>
+
+<p align="center">
+  A tela inicial apresenta um formulário onde o usuário pode inserir um número inteiro para calcular a quantidade de números primos menores que ele.
+<p>
+
+
 
 <h3 align="center">
     Calculando o resultado:
+</h3>
+
+<h3 align="center">
     <br>
     <img src="https://i.imgur.com/AWnazaO.png" width="450"/>
     <img src="https://i.imgur.com/giFuxZa.png" width="450"/>
     <br>
-    Enquanto o cálculo é realizado, uma animação de carregamento é exibida para indicar que a aplicação está processando a requisição. Após a conclusão do cálculo, o resultado é exibido na tela.
 </h3>
+
+<p align="center">
+  Enquanto o cálculo é realizado, uma animação de carregamento é exibida para indicar que a aplicação está processando a requisição. Após a conclusão do cálculo, o resultado é exibido na tela.
+<p>
 
 
 <h3 align="center">
     Em caso de erro:
+</h3>
+
+<h3 align="center">
     <br>
     <img src="https://i.imgur.com/GtCpTt2.png" width="450"/>
     <br>
-    Se ocorrer um erro durante a requisição, uma mensagem de erro é exibida na tela para informar o usuário sobre o problema e orientá-lo sobre como proceder.
 </h3>
+
+<p align="center">
+  Se ocorrer um erro durante a requisição, uma mensagem de erro é exibida na tela para informar o usuário sobre o problema e orientá-lo sobre como proceder.
+<p>
 
 <h2 id="local">Como executar localmente</h2>
 
@@ -183,7 +203,7 @@ Como citado na seção de [Tecnologias Utilizadas](#tech), o projeto foi hospeda
 
 As imagens dos containers foram hospedadas no Docker Hub para facilitar o deploy na AWS, a imagem do Front-End pode ser encontrada [aqui](https://hub.docker.com/r/avilamatheus/desafio-bridge-2024-frontend-aws) e a imagem do Back-End pode ser encontrada [aqui](https://hub.docker.com/r/avilamatheus/desafio-bridge-2024-backend-aws).
 
-Dentro da instância EC2, foi criado um diretório referente ao projeto e dentro deste foi criado o arquivo `docker-compose.yml` a seguir:
+Dentro da instância EC2, foi criado um diretório referente ao projeto e dentro deste foi criado o arquivo `docker-compose.yaml` a seguir:
 
 ```yaml
 services:
