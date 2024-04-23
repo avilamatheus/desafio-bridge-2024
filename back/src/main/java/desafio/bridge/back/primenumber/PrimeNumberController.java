@@ -54,6 +54,10 @@ public class PrimeNumberController {
         return new ResponseEntity<>(new ErrorResponseDTO(exception.getMessage()), HttpStatus.BAD_REQUEST);
     }
 
+    /**
+     * Handles exceptions of type {@link NumberFormatException}.
+     * @return {@link ResponseEntity} with HTTP status code 400 (Bad Request) and a body containing the exception message
+     */
     @ExceptionHandler(NumberFormatException.class)
     public ResponseEntity<ErrorResponseDTO> handleInvalidParameterK() {
         return new ResponseEntity<>(new ErrorResponseDTO("Field 'k' must be a valid Integer"), HttpStatus.BAD_REQUEST);
